@@ -45,6 +45,34 @@ test_expect_success 'git ls-files --format objecttype' '
 	test_cmp expect actual
 '
 
+test_expect_success 'git ls-files --format objectsize' '
+	cat>expect <<-\EOF &&
+26
+29
+27
+26
+-
+26
+	EOF
+	git ls-files --format="%(objectsize)" >actual &&
+
+	test_cmp expect actual
+'
+
+test_expect_success 'git ls-files --format objectsize:padded' '
+	cat>expect <<-\EOF &&
+     26
+     29
+     27
+     26
+      -
+     26
+	EOF
+	git ls-files --format="%(objectsize:padded)" >actual &&
+
+	test_cmp expect actual
+'
+
 test_expect_success 'git ls-files --format v.s. --eol' '
 	git ls-files --eol >tmp &&
 	sed -e "s/	/ /g" -e "s/  */ /g" tmp >expect 2>err &&

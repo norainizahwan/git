@@ -274,6 +274,10 @@ objecttype::
 	The object type of the file which is recorded in the index.
 objectname::
 	The name of the file which is recorded in the index.
+objectsize[:padded]::
+	The object size of the file which is recorded in the index
+	("-" if the object is a `commit` or `tree`).
+	It also supports a padded format of size with "%(objectsize:padded)".
 stage::
 	The stage of the file which is recorded in the index.
 eolinfo:index::
