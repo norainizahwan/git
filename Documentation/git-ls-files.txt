@@ -270,6 +270,8 @@ interpolated.  The following "fieldname" are understood:
 
 objectmode::
 	The mode of the file which is recorded in the index.
+objecttype::
+	The object type of the file which is recorded in the index.
 objectname::
 	The name of the file which is recorded in the index.
 stage::

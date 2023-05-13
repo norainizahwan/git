@@ -272,6 +272,8 @@ static size_t expand_show_index(struct strbuf *sb, const char *start,
 		strbuf_addf(sb, "%06o", data->ce->ce_mode);
 	else if (skip_prefix(start, "(objectname)", &p))
 		strbuf_add_unique_abbrev(sb, &data->ce->oid, abbrev);
+	else if (skip_prefix(start, "(objecttype)", &p))
+		strbuf_addstr(sb, type_name(object_type(data->ce->ce_mode)));
 	else if (skip_prefix(start, "(stage)", &p))
 		strbuf_addf(sb, "%d", ce_stage(data->ce));
 	else if (skip_prefix(start, "(eolinfo:index)", &p))
